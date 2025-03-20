@@ -1,8 +1,10 @@
-package com.heima.sharedevice.domain;
+package com.share.device.domain;
 
 import com.share.common.core.web.domain.BaseEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+
+import java.util.Collection;
 
 @Data
 @Schema(description = "柜机类型")
@@ -25,5 +27,7 @@ public class CabinetType extends BaseEntity
     /** 状态（0正常 1停用） */
     @Schema(description = "状态")
     private String status;
+
+
 
 }

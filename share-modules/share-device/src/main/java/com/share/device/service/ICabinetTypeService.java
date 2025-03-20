@@ -1,11 +1,13 @@
-package com.heima.sharedevice.service;
+package com.share.device.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.heima.sharedevice.domain.CabinetType;
+import com.share.device.domain.CabinetType;
 
 import java.util.List;
 
-public interface ICabinetTypeService extends IService<CabinetType> {
+public interface ICabinetTypeService extends IService<CabinetType>
+{
+
     /**
      * 查询柜机类型列表
      *
