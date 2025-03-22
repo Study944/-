@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.share.device.mapper.CabinetMapper">
+    <resultMap id="CabinetResult" type="com.share.device.domain.Cabinet" autoMapping="true"></resultMap>
+
+    <sql id="selectCabinetVo">
+        select c.id , c.cabinet_no, c.cabinet_type_id, c.status, c.del_flag,
+               c.create_by, c.create_time, c.update_by, c.update_time, c.remark,
+               ct.name as cabinet_type_name
+        from cabinet c
+            left join cabinet_type ct on c.cabinet_type_id = ct.id
+    </sql>
+    <select id="selectCabinetList" resultMap="CabinetResult">
+        <include refid="selectCabinetVo"/>
+        <where>
+            <if test="cabinetNo != null  and cabinetNo != ''"> and cabinet_no =  #{cabinetNo}</if>
+             <if test="cabinetTypeId != null "> and cabinet_type_id =  #{cabinetTypeId}</if>
+              <if test="status != null  and status != ''"> and status =  #{status}</if>
+               <if test="name != null and name != '' ">and c.name like concat('%', #{name}, '%')</if>
+        </where>
+    </select>
+</mapper>

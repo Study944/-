@@ -27,7 +27,7 @@ public class HeaderInterceptor implements AsyncHandlerInterceptor
         {
             return true;
         }
-
+        // 将当前线程的header数据传递给下个线程
         SecurityContextHolder.setUserId(ServletUtils.getHeader(request, SecurityConstants.DETAILS_USER_ID));
         SecurityContextHolder.setUserName(ServletUtils.getHeader(request, SecurityConstants.DETAILS_USERNAME));
         SecurityContextHolder.setUserKey(ServletUtils.getHeader(request, SecurityConstants.USER_KEY));
